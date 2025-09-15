@@ -8,8 +8,8 @@
     observed variables: ['stationPressure']
   statistics to compute: ['mean', 'count', 'RMS']
   variables: ['stationPressure']
-  groups to process: ['ombg', 'oman']
-  qc groups: ['EffectiveQC0', 'EffectiveQC1']  
+  groups to process: ['ObsValue']
+  qc groups: ['QualityMarker']  
   output file: "./prepbufr_adpsfc_out.nc"
   regular grid binning:
     bin size in degrees: 1.0

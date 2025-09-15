@@ -22,6 +22,10 @@ export PDY=$(date -u -d '6 hours ago' +%Y%m%d)
 export cyc=$(date -u -d '6 hours ago' +%H)
 PDYb=$(date -u -d '9 hours ago' +%Y%m%d)
 cycb=$(date -u -d '9 hours ago' +%H)
+export PDY=20250915
+export cyc=06
+PDYb=20250915
+cycb=03
 
 YYYY=$(echo $PDYb | cut -c1-4)
 MM=$(echo $PDYb | cut -c5-6)
@@ -38,6 +42,7 @@ time window:
   begin: ${YYYY}-${MM}-${DD}T${cycb}:00:00Z
   length: PT6H
   bound to include: begin
+obs spaces:
 EOF
 
 # loop over specified ob types
