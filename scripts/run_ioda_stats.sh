@@ -22,10 +22,6 @@ export PDY=$(date -u -d '6 hours ago' +%Y%m%d)
 export cyc=$(date -u -d '6 hours ago' +%H)
 PDYb=$(date -u -d '9 hours ago' +%Y%m%d)
 cycb=$(date -u -d '9 hours ago' +%H)
-export PDY=20250915
-export cyc=06
-PDYb=20250915
-cycb=03
 
 YYYY=$(echo $PDYb | cut -c1-4)
 MM=$(echo $PDYb | cut -c5-6)
@@ -48,7 +44,7 @@ EOF
 # loop over specified ob types
 for obtype in $obtypes; do
     # copy files from obsforge
-    cp $COMIN_obsforge/${run}.${PDY}/${cyc}/atmos/${run}.t${cyc}z.${obtype}.nc $DATA/${obtype}_in.nc
+    cp -rf $COMIN_obsforge/${run}.${PDY}/${cyc}/atmos/${run}.t${cyc}z.${obtype}.nc $DATA/${obtype}_in.nc
     if [ $? -ne 0 ]; then
         echo "No ${obtype} data for ${run} at ${PDY} ${cyc}Z"
         continue
@@ -66,6 +62,6 @@ fi
 
 # copy output to COMOUT
 mkdir -p $COMOUT_stats/${run}.${PDY}/${cyc}/products/atmos/anlmon/
-cp $DATA/*_out.nc $COMOUT_stats/${run}.${PDY}/${cyc}/products/atmos/anlmon/.
+cp -rf $DATA/*_out.nc $COMOUT_stats/${run}.${PDY}/${cyc}/products/atmos/anlmon/.
 
 exit 0
