@@ -64,7 +64,7 @@ fi
 # copy output to COMOUT
 mkdir -p $COMOUT_stats/${run}.${PDY}/${cyc}/products/atmos/anlmon/
 cp -rf $DATA/*_out.nc $COMOUT_stats/${run}.${PDY}/${cyc}/products/atmos/anlmon/.
-for file in "${DATA}/*_out.nc"; do
+for file in `ls ${DATA}/*_out.nc`; do
     filename=$(basename "$file")
     cp -rf ${file} "$COMOUT_stats/${run}.${PDY}/${cyc}/products/atmos/anlmon/${OPREFIX}${filename}"
 done
